@@ -34,22 +34,6 @@ function dbFetchAssoc(string $sql, array $params = []) {
 }
 
 /**
- * Ejecuta una consulta SQL y devuelve el número de filas afectadas.
- *
- * @param string $sql La consulta SQL a ejecutar.
- * @param array $params Parámetros para la consulta.
- * @return int
- */
-function dbNumRows(string $sql, array $params = []) {
-    global $entityManager;
-
-    $stmt = $entityManager->getConnection()->prepare($sql);
-    $stmt->executeStatement($params);
-
-    return $stmt->rowCount();
-}
-
-/**
  * Ejecuta una consulta SQL y devuelve todas las filas en un array asociativo.
  *
  * @param string $sql La consulta SQL a ejecutar.
